@@ -2,5 +2,10 @@
     <string name="app_name">practica1</string>
     <string name="userInputText">Correo</string>
     <string name="passInputText">Contraseña</string>
-    <string name="buttonSignIn">Sign in</string>
+    <string name="buttonSignIn">Entrar</string>
+    <string name="buttonRegister">¿No te has registrado aún?</string>
+    <string name="registerTitle">Registro</string>
+    <string name="nameInputText">Nombre</string>
+    <string name="passInputTextRepeat">Repita la contraseña</string>
+    <string name="signUp">Registrarse</string>
 </resources>

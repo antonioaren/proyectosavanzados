@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".dashboard.view.DashboardView"></activity>
         <activity android:name=".registration.view.RegisterView"></activity>
+        <activity android:name=".dashboard.view.DashboardView"></activity>
 
     </application>
 

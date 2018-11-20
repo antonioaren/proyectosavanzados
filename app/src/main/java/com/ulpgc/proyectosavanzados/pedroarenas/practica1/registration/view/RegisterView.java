@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ulpgc.proyectosavanzados.pedroarenas.practica1.R;
 import com.ulpgc.proyectosavanzados.pedroarenas.practica1.registration.presenter.RegisterPresenter;
@@ -23,6 +24,8 @@ public class RegisterView extends AppCompatActivity implements I_RegisterView {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        presenter = new RegisterPresenter(this);
 
         name = (EditText) findViewById(R.id.editNameR);
         mail = (EditText) findViewById(R.id.editMailR);
@@ -46,14 +49,29 @@ public class RegisterView extends AppCompatActivity implements I_RegisterView {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.onStop();
+    }
+
+    @Override
     public void sendDataToPresenter() {
-        //name.getText().toString();
+        name.getText().toString();
+        pass.getText().toString();
+
         presenter.registerDataUser(mail.getText().toString(),pass.getText().toString());
     }
 
     @Override
     public void showToast(String text) {
         //TODO: Validaciones y errores a presentar para el registro.
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
 
     }
 
@@ -69,6 +87,8 @@ public class RegisterView extends AppCompatActivity implements I_RegisterView {
         finish();
 
     }
+
+
 
 
 

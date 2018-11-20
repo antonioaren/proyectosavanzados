@@ -14,6 +14,7 @@ public class LoginPresenter implements I_LoginPresenter {
     private LoginIteractor iteractor;
     private LoginActivity viewLogin;
 
+
     private EventBus eventBus;
 
     public LoginPresenter(LoginActivity loginActivity) {
@@ -22,6 +23,7 @@ public class LoginPresenter implements I_LoginPresenter {
         this.viewLogin = loginActivity;
         this.eventBus = EventBus.getDefault();
     }
+
 
 
     @Override
@@ -65,14 +67,17 @@ public class LoginPresenter implements I_LoginPresenter {
 
 
 
-    public void loginDataUser(String mail, String password) {
+    public void dataFromViewLogin(String mail, String password) {
         Log.d("AUTENTICATION","LoginDataUser");
         iteractor.checkUserIdentification(mail, password);
     }
 
 
-
-
+    public void dataFromViewRegister(String name, String mail, String pass) {
+        Log.d("AUTENTICATION","LoginDataUser");
+        iteractor.checkUserRegistration(mail,pass);
+        iteractor.saveUserOnDB(name,mail,pass);
+    }
 
 
 }

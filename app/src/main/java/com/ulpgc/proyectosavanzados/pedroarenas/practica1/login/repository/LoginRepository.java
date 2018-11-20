@@ -23,19 +23,7 @@ public class LoginRepository implements I_LoginRepository {
 
     @Override
     public void singUp(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            postEvents(LoginEvent.SUCCESS_ALTA);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            postEvents(LoginEvent.ERROR_ALTA);
-                        }
-                    }
-                });
+
     }
 
     @Override
@@ -55,7 +43,6 @@ public class LoginRepository implements I_LoginRepository {
                                 // If sign in fails, display a message to the user.
                                 Log.w("AUTENTICATION", "signInWithEmail:failure", task.getException());
                                 postEvents(LoginEvent.ERROR_LOG_IN);
-
                             }
 
                         }
@@ -75,6 +62,11 @@ public class LoginRepository implements I_LoginRepository {
         LoginEvent event = new LoginEvent();
         event.setEventType(type);
         EventBus.getDefault().post(event);
+
+    }
+
+    @Override
+    public void saveOnDB(String name, String mail, String pass) {
 
     }
 }

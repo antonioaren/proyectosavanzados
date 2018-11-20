@@ -7,4 +7,6 @@ public interface I_LoginRepository {
     void singIn(String email, String password);
 
     void forgotPass (String email);
+
+    void saveOnDB(String name, String mail, String pass);
 }

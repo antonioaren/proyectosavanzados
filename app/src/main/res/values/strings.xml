@@ -8,4 +8,8 @@
     <string name="nameInputText">Nombre</string>
     <string name="passInputTextRepeat">Repita la contraseña</string>
     <string name="signUp">Registrarse</string>
+    <string name="update">Actualizar</string>
+    <string name="remove">Borrar</string>
+    <string name="logout">Log out</string>
+    <string name="welcome">Bienvenido</string>
 </resources>

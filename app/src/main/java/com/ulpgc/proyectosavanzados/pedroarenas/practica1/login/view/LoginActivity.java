@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
 
 
         correo.setText("antonioaren@hotmail.com");
-        pass.setText("uno.dos.tres.cuatro");
+        pass.setText("pedro1234");
 
 
     }
@@ -79,14 +79,15 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
         Log.d("AUTENTICATION","sendDataToPresenter");
         //TODO: Falta validación del texto. (Presenter)
 
-        presenter.loginDataUser(correo.getText().toString(), pass.getText().toString());
+        presenter.dataFromViewLogin(correo.getText().toString()
+                , pass.getText().toString());
     }
 
 
     public void giveAccess() {
         Intent intent = new Intent(this, DashboardView.class);
         startActivity(intent);
-        //finish();
+        finish();
     }
 
 
@@ -94,6 +95,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
 
 
     public void goToRegistration () {
+        onStop();
         Intent intent = new Intent(this, RegisterView.class);
         startActivity(intent);
         //finish();

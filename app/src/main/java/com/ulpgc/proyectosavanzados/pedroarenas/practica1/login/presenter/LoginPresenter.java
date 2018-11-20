@@ -13,8 +13,7 @@ import org.greenrobot.eventbus.Subscribe;
 public class LoginPresenter implements I_LoginPresenter {
     private LoginIteractor iteractor;
     private LoginActivity viewLogin;
-
-
+    private String emailProvisional;
     private EventBus eventBus;
 
     public LoginPresenter(LoginActivity loginActivity) {
@@ -23,8 +22,6 @@ public class LoginPresenter implements I_LoginPresenter {
         this.viewLogin = loginActivity;
         this.eventBus = EventBus.getDefault();
     }
-
-
 
     @Override
     public void onStart() {
@@ -43,7 +40,7 @@ public class LoginPresenter implements I_LoginPresenter {
 
         switch (event.getEventType()) {
             case LoginEvent.SUCCESS_LOG_IN:
-                viewLogin.giveAccess();
+                viewLogin.giveAccess(emailProvisional);
                 break;
             case LoginEvent.ERROR_LOG_IN:
                 viewLogin.showToast("ERROR AL VALIDAR. REVISAR CONTRASEÑA");
@@ -69,15 +66,13 @@ public class LoginPresenter implements I_LoginPresenter {
 
     public void dataFromViewLogin(String mail, String password) {
         Log.d("AUTENTICATION","LoginDataUser");
+        this.emailProvisional = mail;
         iteractor.checkUserIdentification(mail, password);
     }
 
 
-    public void dataFromViewRegister(String name, String mail, String pass) {
-        Log.d("AUTENTICATION","LoginDataUser");
-        iteractor.checkUserRegistration(mail,pass);
-        iteractor.saveUserOnDB(name,mail,pass);
-    }
+
+
 
 
 }

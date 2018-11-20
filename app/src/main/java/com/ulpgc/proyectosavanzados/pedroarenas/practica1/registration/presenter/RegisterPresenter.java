@@ -47,7 +47,6 @@ public class RegisterPresenter implements I_RegisterPresenter {
             case LoginEvent.ERROR_LOG_IN:
                 viewLogin.showToast("ERROR AL VALIDAR. REVISAR CONTRASEÑA");
                 viewLogin.limpiarFormulario();
-
                 break;
             case LoginEvent.SUCCESS_RESET_PASSWORD:
                 //view.mostrarResetearContrasenaEnviada();
@@ -70,8 +69,8 @@ public class RegisterPresenter implements I_RegisterPresenter {
 
 
 
-    public void registerDataUser(String mail, String password) {
-        iteractor.checkUserRegistration(mail, password);
+    public void registerDataUser(String name, String mail, String password) {
+        iteractor.checkUserRegistration(name,mail, password);
 
     }
 }

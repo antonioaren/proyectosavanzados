@@ -29,14 +29,14 @@ public class RegisterRepository implements I_RegisterRepository {
     }
 
 
-    public void signUp(final String mail, String password) {
+    public void signUp(final String name, final String mail, String password) {
         try {
             mAuth.createUserWithEmailAndPassword(mail, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                String console = "Perfecto";
+
                                 // Sign in success, update UI with the signed-in user's information
 
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -45,6 +45,7 @@ public class RegisterRepository implements I_RegisterRepository {
                                 String key = ref.push().getKey();
                                 Usuario user = new Usuario ();
                                 user.setID(key);
+                                user.setName(name);
                                 user.setEmail(mail);
                                 ref.child(key).setValue(user);
 

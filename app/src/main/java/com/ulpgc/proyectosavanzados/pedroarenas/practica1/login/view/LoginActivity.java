@@ -84,15 +84,12 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
     }
 
 
-    public void giveAccess() {
+    public void giveAccess(String email) {
         Intent intent = new Intent(this, DashboardView.class);
+        intent.putExtra("Email", email);
         startActivity(intent);
         finish();
     }
-
-
-
-
 
     public void goToRegistration () {
         onStop();

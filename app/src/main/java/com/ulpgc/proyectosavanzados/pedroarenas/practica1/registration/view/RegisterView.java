@@ -62,10 +62,8 @@ public class RegisterView extends AppCompatActivity implements I_RegisterView {
 
     @Override
     public void sendDataToPresenter() {
-        name.getText().toString();
-        pass.getText().toString();
 
-        presenter.registerDataUser(mail.getText().toString(),pass.getText().toString());
+        presenter.registerDataUser(name.getText().toString(),mail.getText().toString(),pass.getText().toString());
     }
 
     @Override

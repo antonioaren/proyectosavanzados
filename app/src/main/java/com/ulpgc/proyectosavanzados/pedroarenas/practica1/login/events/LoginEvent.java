@@ -7,7 +7,8 @@ public class LoginEvent {
     public static final int SUCCESS_RESET_PASSWORD = 3;
     public static final int ERROR_ALTA = 4;
     public static final int SUCCESS_ALTA = 5;
-
+    public static final int SUCCESS_DATA_GET_FROM_DB = 6;
+    public static final int FAIL_DATA_GET_FROM_DB = 7;
 
 
     private int eventType;

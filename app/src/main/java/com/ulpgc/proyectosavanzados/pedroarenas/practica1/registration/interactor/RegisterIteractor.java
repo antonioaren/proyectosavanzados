@@ -10,8 +10,8 @@ public class RegisterIteractor implements I_RegisterInteractor {
     }
 
 
-    public void checkUserRegistration(String mail, String password) {
-        registerRepository.signUp(mail,password);
+    public void checkUserRegistration(String name, String mail, String password) {
+        registerRepository.signUp(name, mail,password);
 
     }
 }

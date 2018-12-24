@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ulpgc.proyectosavanzados.pedroarenas.practica1.R;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
     private Button buttonRegister;
     private EditText correo;
     private EditText pass;
+    private ProgressBar loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
         pass = (EditText) findViewById(R.id.password);
         this.buttonSingIn = (Button) findViewById(R.id.buttonSignIn);
         this.buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        this.loading =(ProgressBar) findViewById(R.id.login_loading);
 
 
 
@@ -63,6 +66,12 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         presenter.onStart();
@@ -79,15 +88,18 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
         Log.d("AUTENTICATION","sendDataToPresenter");
         //TODO: Falta validación del texto. (Presenter)
 
-        presenter.dataFromViewLogin(correo.getText().toString()
-                , pass.getText().toString());
+        presenter.dataFromViewLogin(correo.getText().toString(), pass.getText().toString());
+        loading.setVisibility(View.VISIBLE);
     }
 
 
     public void giveAccess(String email) {
         Intent intent = new Intent(this, DashboardView.class);
         intent.putExtra("Email", email);
+
+        loading.setVisibility(View.INVISIBLE);
         this.showToast("Login Correcto");
+
         startActivity(intent);
         finish();
     }
@@ -96,12 +108,18 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
         onStop();
         Intent intent = new Intent(this, RegisterView.class);
         startActivity(intent);
-        //finish();
     }
 
     public void setDataFromRegistration () {
 
     }
+
+    @Override
+    public void disableProgressBarBecauseOfError() {
+        loading.setVisibility(View.INVISIBLE);
+    }
+
+
 
     @Override
     public void showToast(String text) {

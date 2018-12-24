@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ulpgc.proyectosavanzados.pedroarenas.practica1.R;
@@ -23,6 +24,8 @@ public class DashboardView extends AppCompatActivity implements I_DashboardView 
     private Button update;
     private Button delete;
     private Button logOut;
+
+    private ProgressBar loading;
 
     private DashboardPresenter presenter;
     private String TAG = this.getClass().getName();
@@ -46,9 +49,10 @@ public class DashboardView extends AppCompatActivity implements I_DashboardView 
         delete = findViewById(R.id.delete);
         logOut = findViewById(R.id.logout);
 
+        loading = findViewById(R.id.dash_loading);
+
         id.setEnabled(false);
         correo.setEnabled(false);
-
 
         loadData(intent.getStringExtra("Email"));
 
@@ -58,11 +62,8 @@ public class DashboardView extends AppCompatActivity implements I_DashboardView 
         });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                presenter.deleteAccount(id.getText().toString());
-            }
+            public void onClick(View view) {presenter.deleteAccount(id.getText().toString());}
         });
-
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,6 +103,7 @@ public class DashboardView extends AppCompatActivity implements I_DashboardView 
         id.setText(usuario.getID());
         correo.setText(usuario.getEmail());
         nombre.setText(usuario.getName());
+        loading.setVisibility(View.GONE);
     }
 
     @Override

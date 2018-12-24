@@ -44,6 +44,7 @@ public class LoginPresenter implements I_LoginPresenter {
                 break;
             case LoginEvent.ERROR_LOG_IN:
                 viewLogin.showToast("ERROR AL VALIDAR. REVISAR CONTRASEÑA");
+                viewLogin.disableProgressBarBecauseOfError();
                 viewLogin.limpiarFormulario();
 
                 break;

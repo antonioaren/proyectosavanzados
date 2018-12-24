@@ -5,6 +5,8 @@ public interface I_LoginActivity {
 
     void sendDataToPresenter();
 
+    void disableProgressBarBecauseOfError();
+
     void showToast(String text);
 
     void limpiarFormulario();

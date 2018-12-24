@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">practica1</string>
-    <string name="userInputText">Correo</string>
+    <string name="mailInputText">Correo</string>
     <string name="passInputText">Contraseña</string>
+    <string name="idInputText">ID</string>
     <string name="buttonSignIn">Entrar</string>
     <string name="buttonRegister">¿No te has registrado aún?</string>
     <string name="registerTitle">Registro</string>

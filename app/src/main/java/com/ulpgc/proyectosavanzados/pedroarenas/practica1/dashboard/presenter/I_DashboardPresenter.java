@@ -13,4 +13,10 @@ interface I_DashboardPresenter {
     void onEventLoginThread(LoginEvent event);
 
     void loadData(String email);
+
+    void updateName(String id, String newName);
+
+    void logOut();
+
+    void deleteAccount(String id);
 }

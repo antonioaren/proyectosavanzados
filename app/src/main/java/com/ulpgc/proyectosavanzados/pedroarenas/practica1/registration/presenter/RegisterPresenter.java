@@ -26,9 +26,7 @@ public class RegisterPresenter implements I_RegisterPresenter {
 
     @Override
     public void onStart() {
-        String text = "Hola";
-        eventBus.register(this); //ESTE ES EL ERROR
-
+        eventBus.register(this);
     }
 
     @Override

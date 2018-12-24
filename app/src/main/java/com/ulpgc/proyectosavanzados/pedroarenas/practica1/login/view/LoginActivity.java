@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
     public void giveAccess(String email) {
         Intent intent = new Intent(this, DashboardView.class);
         intent.putExtra("Email", email);
+        this.showToast("Login Correcto");
         startActivity(intent);
         finish();
     }
@@ -104,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements I_LoginActivity 
 
     @Override
     public void showToast(String text) {
-        Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show();
     }
 

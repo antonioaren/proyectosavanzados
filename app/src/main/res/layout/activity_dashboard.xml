@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:ems="10"
+        android:hint="@string/nameInputText"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/mailDash"
         app:layout_constraintTop_toBottomOf="@+id/mailDash" />
@@ -65,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:ems="10"
+        android:hint="@string/mailInputText"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/idDash"
         app:layout_constraintTop_toBottomOf="@+id/idDash" />
@@ -75,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="@string/idInputText"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

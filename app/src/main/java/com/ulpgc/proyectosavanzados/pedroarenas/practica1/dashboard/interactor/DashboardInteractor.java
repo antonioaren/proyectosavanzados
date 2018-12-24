@@ -12,6 +12,17 @@ public class DashboardInteractor implements I_DashboardInteractor {
 
     public void loadData(String email) {
         repository.loadData(email);
+    }
 
+    public void deleteData(String id) {
+        repository.deleteData(id);
+    }
+
+    public void updateData(String id, String newName) {
+        repository.updateData(id, newName);
+    }
+
+    public void logOut () {
+        repository.logOut();
     }
 }

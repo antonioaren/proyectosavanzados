@@ -15,7 +15,7 @@
         android:layout_marginBottom="32dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/userInputText"
+        android:hint="@string/mailInputText"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editPassR"
         app:layout_constraintEnd_toEndOf="parent"
